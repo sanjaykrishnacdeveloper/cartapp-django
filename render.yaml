@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cartapp-django
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn cart.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: 'django-insecure-12nyb^$+_dy%9+u_-t$a^%cdm7b$xyl!0dif864v2!me49gx4z'
+      - key: DEBUG
+        value: False
